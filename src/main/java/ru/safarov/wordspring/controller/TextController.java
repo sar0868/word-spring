@@ -16,8 +16,8 @@ public class TextController {
         this.wordCountService = wordCountService;
     }
 
-    @PostMapping//надо передать сюда текст
-    public WordCountResponse wordsCount(String text){
+    @PostMapping("/wordspring")
+    public Words wordsCount(String text){
 
         return wordCountService.countWords(text);
     }
