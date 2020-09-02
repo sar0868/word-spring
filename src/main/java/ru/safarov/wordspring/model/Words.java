@@ -26,7 +26,7 @@ public class Words extends TreeMap<String, Long> {
     @Override
     public String toString() {
         return "Words{" +
-                "words=" + words +
+                words +
                 '}';
     }
 }
