@@ -1,10 +1,13 @@
 package ru.safarov.wordspring.service;
 
 import org.springframework.stereotype.Service;
+import ru.safarov.wordspring.controller.WordCountResponse;
 import ru.safarov.wordspring.model.Word;
 import ru.safarov.wordspring.model.Words;
 
 import java.util.*;
+
+import static java.awt.SystemColor.text;
 
 @Service
 public class WordCountService {
@@ -12,7 +15,10 @@ public class WordCountService {
     private Words words;
 
 
-    public Words countWords(String text){
+    public WordCountResponse countWords(String text){
+
+        WordCountResponse wordCountResponse = new WordCountResponse();
+
 
         text = text.replaceAll("[^a-zA-Z]", " ").trim();
         List<String> temp = new ArrayList<String>(Arrays.asList(text.split(" ")));
@@ -31,10 +37,14 @@ public class WordCountService {
                 words.put(str,1L);
             }
         }
-
-       Words wordsResponse = new Words((TreeMap<String, Long>) words);
-
-        return wordsResponse;
+        Words words1 = new Words();
+        words1.setWords(new ArrayList<>());
+        for (Map.Entry<String, Long> entry: words.entrySet()){
+            Word word = new Word(entry.getKey(), entry.getValue());
+            words1.getWords().add(word);
+        }
+        wordCountResponse.setWords(words1);
+        return wordCountResponse;
     }
 
 

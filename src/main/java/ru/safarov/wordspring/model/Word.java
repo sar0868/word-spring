@@ -30,9 +30,8 @@ public class Word implements Serializable {
 
     @Override
     public String toString() {
-        return "Word{" +
-                "word='" + word + '\'' +
-                ", count=" + count +
+        return "{'" + word + '\'' +
+                ":" + count +
                 '}';
     }
 }

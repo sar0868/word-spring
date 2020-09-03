@@ -2,31 +2,22 @@ package ru.safarov.wordspring.model;
 
 import com.fasterxml.jackson.databind.type.MapType;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
-public class Words extends TreeMap<String, Long> {
+public class Words {
 
-    private TreeMap<String, Long> words;
+    private Collection<Word> words;
 
-    public Words(TreeMap<String, Long> words) {
-        this.words = words;
-    }
-
-    public TreeMap<String, Long> getWords() {
+    public Collection<Word> getWords() {
         return words;
     }
 
-    public void setWords(TreeMap<String, Long> words) {
+    public void setWords(Collection<Word> words) {
         this.words = words;
     }
 
     @Override
     public String toString() {
-        return "Words{" +
-                words +
-                '}';
+        return words + "";
     }
 }
