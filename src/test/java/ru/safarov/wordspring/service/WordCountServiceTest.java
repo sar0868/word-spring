@@ -17,11 +17,6 @@ import java.util.Scanner;
 
 class WordCountServiceTest {
 
-    WordCountController wordCountController;
-    WordCountResponse response;
-
-
-
     @Test
     void countWordsTest() {
         String textTest = "Grut! 12 3  I am grut!";
